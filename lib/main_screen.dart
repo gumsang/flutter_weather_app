@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_weather_app/api/weather_api.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final weatherApi = WeatherApi();
+
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -21,6 +24,12 @@ class MainScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              ElevatedButton(
+                onPressed: () {
+                  weatherApi.getWeather();
+                },
+                child: Text('GET'),
+              ),
               Text(
                 "Seattle",
                 style: TextStyle(
