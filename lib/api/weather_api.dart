@@ -7,10 +7,6 @@ String myKey = 'b15ce43143f8ba3a9080c5f9299c6d9a';
 
 class WeatherApi {
   final weather = Weather();
-
-  WeatherApi() {
-    getWeather();
-  }
   //icon 쓰는법
   //https://openweathermap.org/img/w/01d.png
 
