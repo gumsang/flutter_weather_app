@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_weather_app/api/weather_api.dart';
+import 'package:provider/provider.dart';
+
+import 'view_model/weather_view_model.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final weatherApi = WeatherApi();
+    final viewModel = context.watch<WeatherViewModel>();
 
     return Container(
       decoration: const BoxDecoration(
@@ -26,7 +26,8 @@ class MainScreen extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  weatherApi.getWeather();
+                  viewModel.getWeather();
+                  print(viewModel.weather);
                 },
                 child: Text('GET'),
               ),

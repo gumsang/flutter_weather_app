@@ -5,10 +5,13 @@ import '../model/weather.dart';
 
 class WeatherViewModel extends ChangeNotifier {
   final _weatherApi = WeatherApi();
+  MyWeather weather = MyWeather();
 
-  Weather weather = Weather();
+  WeatherViewModel() {
+    getWeather();
+  }
 
-  void fetchArrivalLists(String query) async {
+  void getWeather() async {
     weather = await _weatherApi.getWeather();
     notifyListeners();
   }
