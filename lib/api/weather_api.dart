@@ -6,7 +6,6 @@ String ssamKey = '95114a1e948559e010396b4debdf1672';
 String myKey = 'b15ce43143f8ba3a9080c5f9299c6d9a';
 
 class WeatherApi {
-  final weather = Weather();
   //icon 쓰는법
   //https://openweathermap.org/img/w/01d.png
 
@@ -23,6 +22,6 @@ class WeatherApi {
 
     // Iterable trainLineNm = json['realtimeArrivalList'];
     // return trainLineNm.map((e) => Subway.fromJson(e)).toList();
-    return weather;
+    return Weather.fromJson(json);
   }
 }
