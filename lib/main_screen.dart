@@ -29,18 +29,18 @@ class MainScreen extends StatelessWidget {
                   viewModel.getWeather();
                   print(viewModel.weather);
                 },
-                child: Text('GET'),
+                child: Text('새로 고침'),
               ),
               Text(
-                "Seattle",
-                style: TextStyle(
+                viewModel.getNameOfCity(),
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 30,
                 ),
               ),
               Text(
-                "79`",
-                style: TextStyle(
+                viewModel.getCurrentTemp(),
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 80,
                 ),
@@ -52,12 +52,37 @@ class MainScreen extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
-              Text(
-                'H:93` L:68`',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
+              Column(
+                children: [
+                  Text(
+                    "최고기온 : ${viewModel.getTempMax()}",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                  Text(
+                    "최저기온 : ${viewModel.getTempMin()}",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                  Text(
+                    "일출시간 : ${viewModel.getSunriseTime()}",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                  Text(
+                    "일몰시간 : ${viewModel.getSunsetTime()}",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 60, 20, 10),
