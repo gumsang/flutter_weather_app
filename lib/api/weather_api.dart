@@ -2,9 +2,7 @@ import 'dart:convert';
 import 'package:flutter_weather_app/model/weather.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_weather_app/mock_data/mock_json.dart';
-
-String ssamKey = '95114a1e948559e010396b4debdf1672';
-String myKey = 'b15ce43143f8ba3a9080c5f9299c6d9a';
+import 'apikeys.dart';
 
 class WeatherApi {
   //icon 쓰는법
@@ -19,10 +17,6 @@ class WeatherApi {
 
     Map<String, dynamic> json = jsonDecode(mock_json);
 
-    print("my key is $json");
-
-    // Iterable trainLineNm = json['realtimeArrivalList'];
-    // return trainLineNm.map((e) => Subway.fromJson(e)).toList();
     return MyWeather.fromJson(json);
   }
 }
