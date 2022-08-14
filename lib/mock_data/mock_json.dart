@@ -1,4 +1,4 @@
-String mock_json = '''
+String mockJson = '''
 {
   "coord": {
     "lon": 126.9778,

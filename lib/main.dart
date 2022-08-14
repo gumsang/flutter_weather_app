@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_weather_app/screens/main_screen.dart';
 import 'package:flutter_weather_app/view_model/weather_view_model.dart';
 import 'package:provider/provider.dart';
-import 'main_screen.dart';
+import 'screens/local_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
       ),
       home: ChangeNotifierProvider(
         create: (_) => WeatherViewModel(),

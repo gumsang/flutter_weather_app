@@ -15,7 +15,7 @@ class WeatherApi {
     // http.Response response = await http.get(url);
     // String jsonString = response.body;
 
-    Map<String, dynamic> json = jsonDecode(mock_json);
+    Map<String, dynamic> json = jsonDecode(mockJson);
 
     return MyWeather.fromJson(json);
   }
