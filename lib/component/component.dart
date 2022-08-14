@@ -14,16 +14,3 @@ class Loacls extends StatelessWidget {
     );
   }
 }
-
-List<String> cityList = [
-  "Seoul",
-  "Daejeon",
-  "Daegu",
-  "Busan",
-  "Gwangju",
-  "Gangneung",
-  "Chungju",
-  "Chuncheon",
-  "Jeonju",
-  "Jeju-do",
-];

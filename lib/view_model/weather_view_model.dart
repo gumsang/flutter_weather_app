@@ -7,13 +7,33 @@ import '../model/weather.dart';
 class WeatherViewModel extends ChangeNotifier {
   final _weatherApi = WeatherApi();
   MyWeather weather = MyWeather();
+  List<MyWeather> weatherList = [];
+  List<String> cityList = [
+    "Seoul",
+    "Daejeon",
+    "Daegu",
+    "Busan",
+    "Gwangju",
+    "Gangneung",
+    "Chungju",
+    "Chuncheon",
+    "Jeonju",
+    "Jeju-do",
+  ];
 
   WeatherViewModel() {
     getWeather();
   }
 
   void getWeather() async {
-    weather = await _weatherApi.getWeather();
+    cityList.forEach(
+      (element) async {
+        MyWeather weather = await _weatherApi.getWeather(element);
+        weatherList.add(weather);
+      },
+    );
+
+    // weather = await _weatherApi.getWeather();
     notifyListeners();
   }
 

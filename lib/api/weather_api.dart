@@ -8,14 +8,15 @@ class WeatherApi {
   //icon 쓰는법
   //https://openweathermap.org/img/w/01d.png
 
-  Future<MyWeather> getWeather() async {
-    // Uri url = Uri.parse(
-    //     'https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=$myKey');
+  Future<MyWeather> getWeather(String query) async {
+    Uri url = Uri.parse(
+        'https://api.openweathermap.org/data/2.5/weather?q=$query&appid=$myKey');
 
-    // http.Response response = await http.get(url);
-    // String jsonString = response.body;
+    http.Response response = await http.get(url);
+    String jsonString = response.body;
 
-    Map<String, dynamic> json = jsonDecode(mockJson);
+    Map<String, dynamic> json = jsonDecode(jsonString);
+    // Map<String, dynamic> json = jsonDecode(mockJson);
 
     return MyWeather.fromJson(json);
   }
