@@ -29,14 +29,14 @@ class LocalScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          viewModel.getNameOfCity(),
+                          viewModel.getNameOfCity(viewModel.weather),
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 30,
                           ),
                         ),
                         Text(
-                          viewModel.getCurrentTemp(),
+                          viewModel.getCurrentTemp(viewModel.weather),
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 80,
@@ -52,28 +52,28 @@ class LocalScreen extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              "최고기온 : ${viewModel.getTempMax()}",
+                              "최고기온 : ${viewModel.getTempMax(viewModel.weather)}",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
                               ),
                             ),
                             Text(
-                              "최저기온 : ${viewModel.getTempMin()}",
+                              "최저기온 : ${viewModel.getTempMin(viewModel.weather)}",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
                               ),
                             ),
                             Text(
-                              "일출시간 : ${viewModel.getSunriseTime()}",
+                              "일출시간 : ${viewModel.getSunriseTime(viewModel.weather)}",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
                               ),
                             ),
                             Text(
-                              "일몰시간 : ${viewModel.getSunsetTime()}",
+                              "일몰시간 : ${viewModel.getSunsetTime(viewModel.weather)}",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,

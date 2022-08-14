@@ -37,8 +37,8 @@ class WeatherViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  String getNameOfCity() {
-    return weather.name.toString();
+  String getNameOfCity(MyWeather city) {
+    return city.name.toString();
   }
 
   num FtoC(num F) {
@@ -51,16 +51,16 @@ class WeatherViewModel extends ChangeNotifier {
     return C;
   }
 
-  String getCurrentTemp() {
-    return KtoC(weather.main!.temp!).toStringAsFixed(1);
+  String getCurrentTemp(MyWeather city) {
+    return KtoC(city.main!.temp!).toStringAsFixed(1);
   }
 
-  String getTempMax() {
-    return KtoC(weather.main!.tempMax!).toStringAsFixed(1);
+  String getTempMax(MyWeather city) {
+    return KtoC(city.main!.tempMax!).toStringAsFixed(1);
   }
 
-  String getTempMin() {
-    return KtoC(weather.main!.tempMin!).toStringAsFixed(1);
+  String getTempMin(MyWeather city) {
+    return KtoC(city.main!.tempMin!).toStringAsFixed(1);
   }
 
   String convertUnixTimeToDateTime(num unixTime) {
