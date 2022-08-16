@@ -230,18 +230,18 @@ class Clouds {
 }
 
 class Sys {
-  num? type;
-  num? id;
+  // num? type;
+  // num? id;
   String? country;
   num? sunrise;
   num? sunset;
 
-  Sys({this.type, this.id, this.country, this.sunrise, this.sunset});
+  Sys({this.country, this.sunrise, this.sunset});
 
   factory Sys.fromJson(Map<String, dynamic> json) {
     return Sys(
-      type: json['type'] as num,
-      id: json['id'] as num,
+      // type: json['type'] as num,
+      // id: json['id'] as num,
       country: json['country'] as String,
       sunrise: json['sunrise'] as num,
       sunset: json['sunset'] as num,
@@ -250,8 +250,8 @@ class Sys {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['type'] = this.type;
-    data['id'] = this.id;
+    // data['type'] = this.type;
+    // data['id'] = this.id;
     data['country'] = this.country;
     data['sunrise'] = this.sunrise;
     data['sunset'] = this.sunset;

@@ -6,8 +6,19 @@ import '../model/weather.dart';
 
 class WeatherViewModel extends ChangeNotifier {
   final _weatherApi = WeatherApi();
-  MyWeather weather = MyWeather();
-  List<MyWeather> weatherList = [];
+  String selectedCity = '';
+  Map<String, MyWeather> weatherList = {
+    "Seoul": MyWeather(),
+    "Daejeon": MyWeather(),
+    "Daegu": MyWeather(),
+    "Busan": MyWeather(),
+    "Gwangju": MyWeather(),
+    "Gangneung": MyWeather(),
+    "Chungju": MyWeather(),
+    "Chuncheon": MyWeather(),
+    "Jeonju": MyWeather(),
+    "Jeju-do": MyWeather(),
+  };
   List<String> cityList = [
     "Seoul",
     "Daejeon",
@@ -25,15 +36,17 @@ class WeatherViewModel extends ChangeNotifier {
     getWeather();
   }
 
+  void setSelectedCity(String query) {
+    selectedCity = query;
+    notifyListeners();
+  }
+
   void getWeather() async {
     cityList.forEach(
       (element) async {
-        MyWeather weather = await _weatherApi.getWeather(element);
-        weatherList.add(weather);
+        weatherList[element] = await _weatherApi.getWeather(element);
       },
     );
-
-    // weather = await _weatherApi.getWeather();
     notifyListeners();
   }
 
@@ -41,26 +54,26 @@ class WeatherViewModel extends ChangeNotifier {
     return city.name.toString();
   }
 
-  num FtoC(num F) {
+  num fToC(num F) {
     num C = (F - 32) * 5 / 9;
     return C;
   }
 
-  num KtoC(num K) {
+  num kToC(num K) {
     num C = K - 273.15;
     return C;
   }
 
   String getCurrentTemp(MyWeather city) {
-    return KtoC(city.main!.temp!).toStringAsFixed(1);
+    return kToC(city.main!.temp!).toStringAsFixed(1);
   }
 
   String getTempMax(MyWeather city) {
-    return KtoC(city.main!.tempMax!).toStringAsFixed(1);
+    return kToC(city.main!.tempMax!).toStringAsFixed(1);
   }
 
   String getTempMin(MyWeather city) {
-    return KtoC(city.main!.tempMin!).toStringAsFixed(1);
+    return kToC(city.main!.tempMin!).toStringAsFixed(1);
   }
 
   String convertUnixTimeToDateTime(num unixTime) {
@@ -70,11 +83,11 @@ class WeatherViewModel extends ChangeNotifier {
     return DateFormat.Hm().format(date);
   }
 
-  String getSunriseTime() {
-    return convertUnixTimeToDateTime(weather.sys!.sunrise!);
+  String getSunriseTime(MyWeather city) {
+    return convertUnixTimeToDateTime(city.sys!.sunrise!);
   }
 
-  String getSunsetTime() {
-    return convertUnixTimeToDateTime(weather.sys!.sunset!);
+  String getSunsetTime(MyWeather city) {
+    return convertUnixTimeToDateTime(city.sys!.sunset!);
   }
 }
