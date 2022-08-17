@@ -42,7 +42,7 @@ class WeatherViewModel extends ChangeNotifier {
   }
 
   void getWeather() async {
-    cityList.forEach(
+    cityList.map(
       (element) async {
         weatherList[element] = await _weatherApi.getWeather(element);
       },
