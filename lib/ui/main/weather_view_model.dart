@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../api/weather_api.dart';
+import '../datasource/weather_api.dart';
 import '../model/weather.dart';
 
 class WeatherViewModel extends ChangeNotifier {

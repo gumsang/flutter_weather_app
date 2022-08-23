@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_weather_app/screens/main_screen.dart';
-import 'package:flutter_weather_app/view_model/weather_view_model.dart';
+import 'package:flutter_weather_app/ui/main_screen.dart';
+import 'package:flutter_weather_app/data/repository/weather_view_model.dart';
 import 'package:provider/provider.dart';
 
 void main() {

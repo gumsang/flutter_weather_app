@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../view_model/weather_view_model.dart';
+import '../data/repository/weather_view_model.dart';
 
 class LocalScreen extends StatelessWidget {
   const LocalScreen({Key? key}) : super(key: key);

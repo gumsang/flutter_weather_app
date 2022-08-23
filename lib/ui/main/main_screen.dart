@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../component/component.dart';
-import '../view_model/weather_view_model.dart';
+import 'component.dart';
+import '../data/repository/weather_view_model.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);

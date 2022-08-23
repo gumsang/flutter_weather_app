@@ -1,8 +1,7 @@
 import 'dart:convert';
-import 'package:flutter_weather_app/model/weather.dart';
+import 'package:flutter_weather_app/data/model/weather.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_weather_app/mock_data/mock_json.dart';
-import 'apikeys.dart';
+import '../../api/apikeys.dart';
 
 class WeatherApi {
   //icon 쓰는법
